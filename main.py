@@ -46,6 +46,7 @@ for i in range(0, num_triangles):
 vertex_array = numpy.array(vertex_array, dtype="f4")
 
 
+
 # Test triangle
 vertex_array = numpy.array([
     -0.5, -0.5, 1.0,   
@@ -57,6 +58,7 @@ vertex_array = numpy.array([
     0.0, 0.5, 1.0,
     0.0 ,0.0, 1.0,     
     ], dtype="f4")
+
 
 
 vertex_buffer = context.buffer(vertex_array)  # Call each time mesh changes
