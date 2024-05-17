@@ -28,7 +28,7 @@ pygame.init()
 pygame.display.set_mode((1600, 900), flags=pygame.OPENGL | pygame.DOUBLEBUF) 
 context = moderngl.create_context()
 
-context.enable(flags=moderngl.DEPTH_TEST | moderngl.CULL_FACE | moderngl.BLEND)
+context.enable(flags=moderngl.DEPTH_TEST | moderngl.CULL | moderngl.BLEND)
 context.gc_mode = "auto"
 
 # Compile shaders
@@ -43,7 +43,7 @@ vertex_array = []
 for i in range(0, num_triangles):
     vertex_data = []  # x, y, z, r, g, b * 3
     for j in range(0, 100):
-        vertex = [random.uniform(-1, 1), random.uniform(-1, 1), random.uniform(0.1, 10)]
+        vertex = [random.uniform(-1, 1), random.uniform(-1, 1), random.uniform(-1, 1)]
         color = [random.random(), random.random(), random.random()]
 
         vertex_data += vertex
@@ -105,5 +105,4 @@ while running:
     vertex_object.render(moderngl.TRIANGLES, vertices=num_triangles*3)
 
     pygame.display.flip()
-    #print(clock.get_fps())
     clock.tick(255)
