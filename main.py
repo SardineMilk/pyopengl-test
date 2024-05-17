@@ -91,7 +91,7 @@ while running:
     camera.rotate_pitch(mouse_dy)
 
     keys = pygame.key.get_pressed()
-    
+
     camera.move_camera(keys, PLAYER_SPEED)
     camera.update()
 

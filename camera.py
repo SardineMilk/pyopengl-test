@@ -22,6 +22,7 @@ class Camera:
         self.m_view = glm.lookAt(self.position, self.position + self.forward, self.up)
 
     def update_vectors(self):
+
         # Update the camera vectors based on view direction
         self.forward.x = glm.cos(self.yaw) * glm.cos(self.pitch)
         self.forward.y = glm.sin(self.pitch)
@@ -38,9 +39,9 @@ class Camera:
             self.move_forward(speed)
         if keys[pygame.K_s]:  # Move backward
             self.move_back(speed)
-        if keys[pygame.K_d]:  # Strafe left
+        if keys[pygame.K_d]:  # Strafe right
             self.move_right(speed)
-        if keys[pygame.K_a]:  # Strafe right
+        if keys[pygame.K_a]:  # Strafe left
             self.move_left(speed)
         if keys[pygame.K_SPACE]:  # Move up
             self.move_up(speed)
@@ -56,9 +57,15 @@ class Camera:
     def rotate_yaw(self, delta_x):
         self.yaw += delta_x * PLAYER_ROTATION_SPEED
 
+    def move_forward(self, velocity):
+        self.position += self.forward * velocity
+
+    def move_back(self, velocity):  
+        self.position -= self.forward * velocity
+
     def move_left(self, velocity):
         self.position -= self.right * velocity
-    
+
     def move_right(self, velocity):
         self.position += self.right * velocity
 
@@ -68,10 +75,5 @@ class Camera:
     def move_down(self, velocity):
         self.position -= self.up * velocity
 
-    def move_forward(self, velocity):
-        #self.position += self.forward * velocity
-        self.position.y += velocity
 
-    def move_back(self, velocity):  
-        #self.position -= self.forward * velocity
-        self.position.y -= velocity
+
