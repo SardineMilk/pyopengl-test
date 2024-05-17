@@ -28,7 +28,7 @@ pygame.init()
 pygame.display.set_mode((1600, 900), flags=pygame.OPENGL | pygame.DOUBLEBUF) 
 context = moderngl.create_context()
 
-context.enable(flags=moderngl.DEPTH_TEST | moderngl.CULL | moderngl.BLEND)
+context.enable(flags=moderngl.DEPTH_TEST | moderngl.CULL_FACE | moderngl.BLEND)
 context.gc_mode = "auto"
 
 # Compile shaders
