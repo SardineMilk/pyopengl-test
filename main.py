@@ -35,7 +35,7 @@ class VoxelEngine:
         self.vertex_array = generate_voxel_mesh()
                 
         # Load an image using PIL
-        image = Image.open('cobblestone.jpg')
+        image = Image.open('cobblestone.png')
         img_data = image.convert('RGBA').tobytes()
         width, height = image.size
 
